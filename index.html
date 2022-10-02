@@ -12,20 +12,630 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 	</head>
+	<style>
+		.container{
+			display: flex;
+		}
+		.col{
+			flex: 1;
+		}
+		table.minimalistBlack {
+		text-align: left;
+		border-collapse: collapse;
+		}
+		table.minimalistBlack td, table.minimalistBlack th {
+		border: 1px solid #068DE9;
+		padding: 5px 4px;
+		}
+		table.minimalistBlack tbody td {
+		font-size: 20px;
+		color: #068DE9;
+		}
+		table.minimalistBlack thead {
+			border-bottom: 3px solid #068DE9;
+		}
+		table.minimalistBlack thead th {
+		font-size: 15px;
+		font-weight: bold;
+		color: #068DE9;
+		text-align: left;
+		}
+		table.minimalistBlack tfoot td {
+		font-size: 14px;
+		}
+	</style>
+
+		
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2
-						<aside class="notes">
-						<p>Some notes</p>
-						</aside>
-						<p>Some slide text</p>
-						<aside class="notes">
-						<p>and some more notes</p>
-					</aside>
+				<section data-markdown data-transition="fade">
+					<textarea>
+						## Challenges with Modelling and Forecasting Time-Series Data
+					</textarea>
 				</section>
+				
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<img src="animate/ts4.svg"/>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col" style="margin-top: 7%;">
+							<ul>
+								<li class="fragment">Sales Figures</li>
+								<li class="fragment">Sensor Measurements</li>
+								<li class="fragment">Stock Prices</li>
+								<li class="fragment">...</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col" style="margin-top: 7%;">
+							<p class="fragment">Mathematically:</p>
+							<p class="fragment">$$y_t=f(t,\omega)$$</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col">
+							<p>$${y_{t}}=f(t,\omega)$$</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col">
+							<p>$$\color{red}{y_{t}}=f(t,\omega)$$</p>
+							<p style="font-style: italic;">
+								<span data-id="A">A</span> 
+								<span data-id="time-series" style="color:red">time-series</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col">
+							<p>$$\color{red}{y_{t}}=\color{rgb(0, 156, 254)}{f}(t,\omega)$$</p>
+							<p style="font-style: italic;">
+								<span data-id="A">A</span> 
+								<span data-id="time-series" style="color:red">time-series</span>
+								<span data-id="is a"> is a </span>
+								<span data-id="function" style="color:rgb(0, 156, 254)">function</span>
+								<span data-id="of"> of</span>
+							</p>
+							<p style="font-style: italic;">
+								
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col">
+							<p>$$\color{red}{y_{t}}=\color{rgb(0, 156, 254)}{f}(\color{green}{t},\omega)$$</p>
+							<p style="font-style: italic;">
+								<span data-id="A">A</span> 
+								<span data-id="time-series" style="color:red">time-series</span>
+								<span data-id="is a"> is a </span>
+								<span data-id="function" style="color:rgb(0, 156, 254)">function</span>
+								<span data-id="of"> of</span>
+								<span data-id="time" style="color:green">time</span>
+								<span data-id="and"> and</span>
+							</p>
+							<p style="font-style: italic;">
+								
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="container">
+						<div class="col">
+							<img src="animate/ts4.svg"/>
+						</div>
+						<div class="col">
+							<p>$$\color{red}{y_{t}}=\color{rgb(0, 156, 254)}{f}(\color{green}{t},\color{orange}{\omega})$$</p>
+							<p style="font-style: italic;">
+								<span data-id="A">A</span> 
+								<span data-id="time-series" style="color:red">time-series</span>
+								<span data-id="is a"> is a </span>
+								<span data-id="function" style="color:rgb(0, 156, 254)">function</span>
+								<span data-id="of"> of</span>
+								<span data-id="time" style="color:green">time</span>
+								<span data-id="and"> and</span>
+								<span data-id="and a"> a</span>
+								<span data-id="source of randomness" style="color:orange">source of randomness</span>
+								<span data-id="dpt">.</span>
+							</p>
+							<p style="font-style: italic;">
+								
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What actually is a time-series?</h3>
+					<div class="r-stack">
+						<div class="container"  style="opacity:0.3">
+							<div class="col">
+								<img src="animate/ts4.svg"/>
+							</div>
+							<div class="col">
+								<p>$$\color{red}{y_{t}}=\color{rgb(0, 156, 254)}{f}(\color{green}{t},\color{orange}{\omega})$$</p>
+								<p style="font-style: italic;">
+									<span data-id="A">A</span> 
+									<span data-id="time-series" style="color:red">time-series</span>
+									<span data-id="is a"> is a </span>
+									<span data-id="function" style="color:rgb(0, 156, 254)">function</span>
+									<span data-id="of"> of</span>
+									<span data-id="time" style="color:green">time</span>
+									<span data-id="and"> and</span>
+									<span data-id="and a"> a</span>
+									<span data-id="source of randomness" style="color:orange">source of randomness</span>
+									<span data-id="dpt">.</span>
+								</p>
+								<p style="font-style: italic;">
+									
+								</p>
+							</div>
+						</div>
+						<img src="animate/random-stuff.gif" style="min-width: 60%;"/>
+					</div>
+					
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>As a consequence, most (point-) forecasts have a non-zero chance of failing miserably at some point</h3>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>As a consequence, most (point-) forecasts have a non-zero chance of failing miserably at some point</h3>
+					<img src="animate/airnews.png"/>
+					<p style="font-size: 10px;">(https://eturbonews.com/iata-global-airline-industry-expected-to-improve-in-2020/)</p>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>As a consequence, most (point-) forecasts have a non-zero chance of failing miserably at some point</h3>
+					<img src="animate/air19.svg"/>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>As a consequence, most (point-) forecasts have a non-zero chance of failing miserably at some point</h3>
+					<img src="animate/air20.svg"/>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Probabilistic forecast intervals can help uncover hidden risks and uncertainty</h3>
+					<img src="animate/air20forecast.svg"/>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Rule of thumb: Forecast intervals should increase with increasing forecast horizon</h3>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Sometimes, point-forecasts are even completely...</h3>
+					<img src="animate/var.svg"/>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<div class="r-stack">
+						<div><h3>point-less!</h3>
+						<img src="animate/var_forecast.svg"/>
+					</div>
+						
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<div class="r-stack">
+						<div><h3>point-less!</h3>
+							<img src="animate/var_forecast.svg"/>
+						</div>
+						<video data-autoplay src="animate/familyguy.mp4"/>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Interval or distributional forecasts are the way to go</h3>
+					<img src="animate/var_forecast_int.svg"/>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Boring statistical models VS. shiny AI networks</h3>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Boring statistical models VS. shiny AI networks</h3>
+					<p>A.k.a. are current AI models also good for forecasting?</p>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Boring statistical models VS. shiny AI networks</h3>
+					<p>A.k.a. are current AI models also good for forecasting?</p>
+					<p>It depends...</p>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<p>It depends...</p>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<p>It depends...</p>
+					<div class="container" style="height: 400px;">
+						<div class="col" style="margin-right: 4%;">
+							<h6>Results M4 competition (2018)</h6>
+							<q style="font-size: 20px;">The majority of ML methods will not be more
+								accurate than statistical ones [...]
+							</q>
+							<br/>
+							<br/>
+							<q style="font-size: 20px;">The combination of statistical and/or ML methods
+								will produce more accurate results [...]
+							</q>
+						</div>
+						<div class="col" style="margin-left: 4%;">
+							<h6>Results M5 competition (2022)</h6>
+							<q style="font-size: 20px;">M5 was the first competition where all of the top-performing
+								methods were both ‘‘pure’’ ML approaches and better than
+								all statistical benchmarks and their combinations</q>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<p>It depends...</p>
+					<div class="container" style="height: 400px;">
+						<div class="col" style="margin-right: 4%;">
+							<h6>Results M4 competition (2018)</h6>
+							<p style="font-size: 20px;">Dataset: A collection of time-series from various sources and domains</p>
+						</div>
+						<div class="col" style="margin-left: 4%;">
+							<h6>Results M5 competition (2022)</h6>
+							<p style="font-size: 20px;">Dataset: Sales data from Walmart (= single domain, single source)</p>						</div>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<p>It depends...</p>
+					<div class="container" style="height: 400px;">
+						<div class="col" style="margin-right: 4%;">
+							<h6>Results M4 competition (2018)</h6>
+							<p style="font-size: 20px;">Dataset: A collection of time-series from various sources and domains</p>
+							<p style="font-size: 20px;">=> Presumably low correlation between different time-series</p>
+						</div>
+						<div class="col" style="margin-left: 4%;">
+							<h6>Results M5 competition (2022)</h6>
+							<p style="font-size: 20px;">Dataset: Sales data from Walmart (= single domain, single source)</p>
+							<p style="font-size: 20px;">=> Potentially large correlation between different time-series</p>
+						</div>
+					</div>
+				</section>
+
+
+
+				<section data-transition="fade" data-auto-animate>
+					<p>It depends...</p>
+					<div class="container" style="height: 400px;">
+						<div class="col" style="margin-right: 4%;">
+							<h6>Results M4 competition (2018)</h6>
+							<p style="font-size: 20px;">Dataset: A collection of time-series from various sources and domains</p>
+							<p style="font-size: 20px;">=> Presumably low correlation between different time-series</p>
+							<p class="fragment highlight-red" style="font-size: 20px;">=> Too little information and Machine Learning easily overfits</p>
+						</div>
+						<div class="col" style="margin-left: 4%;">
+							<h6>Results M5 competition (2022)</h6>
+							<p style="font-size: 20px;">Dataset: Sales data from Walmart (= single domain, single source)</p>
+							<p style="font-size: 20px;">=> Potentially large correlation between different time-series</p>
+							<p class="fragment highlight-red" style="font-size: 20px;">=> Machine Learning can better handle large information from multimodal sources</p>
+						</div>
+					</div>	
+				</section>
+
+
+
+				<section data-transition="fade" data-auto-animate>
+					<div class="r-stack">
+						<div>
+							<p>It depends...</p>
+							<div class="container" style="height: 400px;">
+								<div class="col" style="margin-right: 4%;">
+									<h6>Results M4 competition (2018)</h6>
+									<p style="font-size: 20px;">Dataset: A collection of time-series from various sources and domains</p>
+									<p style="font-size: 20px;">=> Presumably low correlation between different time-series</p>
+									<p style="font-size: 20px; color: red;">=> Too little information and Machine Learning easily overfits</p>
+								</div>
+								<div class="col" style="margin-left: 4%;">
+									<h6>Results M5 competition (2022)</h6>
+									<p style="font-size: 20px;">Dataset: Sales data from Walmart (= single domain, single source)</p>
+									<p style="font-size: 20px;">=> Potentially large correlation between different time-series</p>
+									<p style="font-size: 20px; color: red;">=> Machine Learning can better handle large information from multimodal sources</p>
+								</div>
+							</div>	
+						</div>
+						<img src="animate/balance.webp">
+						
+
+					</div>
+					
+				</section>
+
+
+				
+
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Data gaps and unequal intervals</h3>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Data gaps and unequal intervals</h3>
+					<p>In a perfect world...</p>
+				</section>
+				
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Data gaps and unequal intervals</h3>
+					<p>In a perfect world...</p>
+					<p>...everything looks like a dataset from kaggle</p>
+
+					<table data-id="table-left" class="minimalistBlack">
+						<thead>
+						<tr>
+						<th>dateteime</th>
+						<th>value</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+						<td>2022-01-01T00:00:00Z</td>
+						<td>12</td>
+						</tr>
+						<tr>
+						<td>2022-02-01T00:00:00Z</td>
+						<td>14</td>
+						</tr>
+						<tr>
+						<td>2022-03-01T00:00:00Z</td>
+						<td>30</td>
+						</tr>
+						<tr>
+						<td>2022-04-01T00:00:00Z</td>
+						<td>34</td>
+						</tr>
+						<tr>
+						<td>2022-05-01T00:00:00Z</td>
+						<td>35</td>
+						</tr>
+						<tr>
+						<td>2022-06-01T00:00:00Z</td>
+						<td>30</td>
+						</tr>
+						</tbody>
+					</table>
+					
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Data gaps and unequal intervals</h3>
+					<p>In reality</p>
+					<p>time-series are often much more messy</p>
+					
+					<div class="container">
+						<div class="col">
+							<table data-id="table-left" class="minimalistBlack">
+								<thead>
+								<tr>
+								<th>dateteime</th>
+								<th>value</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+								<td>2022-01-01T00:00:00Z</td>
+								<td>12</td>
+								</tr>
+								<tr>
+								<td>2022-02-01T00:00:00Z</td>
+								<td>14</td>
+								</tr>
+								<tr>
+								<td>2022-03-01T00:00:00Z</td>
+								<td>30</td>
+								</tr>
+								<tr>
+								<td>2022-04-01T00:00:00Z</td>
+								<td>34</td>
+								</tr>
+								<tr>
+								<td>2022-05-01T00:00:00Z</td>
+								<td>35</td>
+								</tr>
+								<tr>
+								<td>2022-06-01T00:00:00Z</td>
+								<td>30</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col">
+							<table data-id="table-left" class="minimalistBlack">
+								<thead>
+								<tr>
+								<th>dateteime</th>
+								<th>value</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+								<td>2022-01-01T00:00:00Z</td>
+								<td>12</td>
+								</tr>
+								<tr>
+								<td>2022-02-<span style="color: red;">12</span>T00:00:00Z</td>
+								<td>14</td>
+								</tr>
+								<tr>
+								<td>2022-03-01T00:00:00Z</td>
+								<td>30</td>
+								</tr>
+								<tr>
+								<td>2022-04-01T00:00:00Z</td>
+								<td><span style="color: red;">NA</span></td>
+								</tr>
+								<tr>
+								<td>2022-05-01T00:00:00Z</td>
+								<td><span style="color: red;">NA</span></td>
+								</tr>
+								<tr>
+								<td>2022-06-01T00:00:00Z</td>
+								<td>30</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+							<h3>Data gaps and unequal intervals</h3>
+							<p>Pick two model characteristics out of three</p>
+							<img src="animate/triangle.png" style="width: 426px; "></img>
+				</section>
+
+							
+				<section data-transition="fade" data-auto-animate>
+					<h3>Slow feedback</h3>
+				</section>
+
+
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Three key challenges</h3>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Three key challenges</h3>
+					<ul>
+						<li>Randomness makes it challenging to build good models</li>
+						<li>Most time-series models presume 'nice' data structures</li>
+						<li>It can take a long time until we see if our models were actually useful</li>
+					</ul>
+				</section>
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>What can we do? Some high-level ideas</h3>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<div class="r-stack">
+						<div data-id="make-trans">
+							<h3>What can we do? Some high-level ideas</h3>
+
+							<ul>
+								<li>Get used to some theory (don't just <code>from x import y</code>)</li>
+								<li>Look for ways to create cleaner datasets</li>
+								<li>Reduce your time-to-feedback</li>
+							</ul>
+						</div>
+				
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<div class="r-stack">
+						<div data-id="make-trans" style="opacity: 0.3;">
+							<h3>What can we do? Some high-level ideas</h3>
+
+							<ul>
+								<li>Get used to some theory (don't just <code>from x import y</code>)</li>
+								<li>Look for ways to create cleaner datasets</li>
+								<li>Reduce your time-to-feedback</li>
+							</ul>
+						</div>
+						<img src="animate/cartman.gif"><img>
+					</div>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Thank you!</h3>
+				</section>
+
+
+				<section data-transition="fade" data-auto-animate>
+					<h3>Thank you!</h3>
+					<p>More info: <a href="https://sarem-seitz.com">sarem-seitz.com</a></p>
+					<p>Contact: <a href="mailto:contact@sarem-seitz.com">contact@sarem-seitz.com</a></p>
+				</section>
+
 			</div>
 		</div>
 
@@ -33,12 +643,31 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/animate/plugin.js"></script>
+		<script src="plugin/animate/svg.min.js"></script>
+		<script>
+		Reveal.initialize({
+			mathjax2: {
+				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				tex2jax: {
+				inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ] ],
+				skipTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ]
+				}
+			},
+			plugins: [ RevealMath.MathJax2, RevealAnimate ]
+			});
+		</script>
+		
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				slideNumber: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 264.464 92.922 L 372.99 261.433 L 155.937 261.433 L 264.464 92.922 Z" style="fill: none; stroke: rgb(6, 141, 233); stroke-width: 3px;" bx:shape="triangle 155.937 92.922 217.053 168.511 0.5 0 1@47a08a9d"/>
+  <text style="fill: rgb(6, 141, 233); font-family: Arial; font-size: 14.6px; white-space: pre;" x="233.235" y="84.127">Simplicity</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 14.6px;" x="633.955" y="233.126"> </text>
+  <text style="fill: rgb(233, 6, 6); font-family: Arial, sans-serif; font-size: 14.6px; font-weight: 700; white-space: pre;" x="105.238" y="275.83">Soundness</text>
+  <text style="fill: rgb(233, 6, 6); font-family: Arial, sans-serif; font-size: 14.6px; font-weight: 700; white-space: pre;" x="367.521" y="275.884">Flexibility</text>
+</svg>
